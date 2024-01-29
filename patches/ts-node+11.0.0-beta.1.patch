@@ -1,0 +1,26 @@
+diff --git a/node_modules/ts-node/.DS_Store b/node_modules/ts-node/.DS_Store
+new file mode 100644
+index 0000000..badfd55
+Binary files /dev/null and b/node_modules/ts-node/.DS_Store differ
+diff --git a/node_modules/ts-node/dist/.DS_Store b/node_modules/ts-node/dist/.DS_Store
+new file mode 100644
+index 0000000..a3df283
+Binary files /dev/null and b/node_modules/ts-node/dist/.DS_Store differ
+diff --git a/node_modules/ts-node/dist/ts-internals.js b/node_modules/ts-node/dist/ts-internals.js
+index 2b303c9..847eaa7 100644
+--- a/node_modules/ts-node/dist/ts-internals.js
++++ b/node_modules/ts-node/dist/ts-internals.js
+@@ -34,10 +34,12 @@ function createTsInternalsUncached(_ts) {
+             return extendedConfigPath;
+         }
+         // If the path isn't a rooted or relative path, resolve like a module
++        const tsGte5_3_0 = util_1.versionGteLt(ts.version, '5.3.0');
+         const resolved = ts.nodeModuleNameResolver(extendedConfig, combinePaths(basePath, 'tsconfig.json'), { moduleResolution: ts.ModuleResolutionKind.NodeJs }, host,
+         /*cache*/ undefined,
+         /*projectRefs*/ undefined,
+-        /*lookupConfig*/ true);
++        /*conditionsOrIsConfigLookup*/ tsGte5_3_0 ? undefined : true,
++        /*isConfigLookup*/ tsGte5_3_0 ? true : undefined);
+         if (resolved.resolvedModule) {
+             return resolved.resolvedModule.resolvedFileName;
+         }

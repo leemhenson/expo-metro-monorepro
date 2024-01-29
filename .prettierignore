@@ -1,0 +1,8 @@
+.expo
+.git
+
+dist
+node_modules
+
+apps/native-app/android
+apps/native-app/ios

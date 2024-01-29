@@ -1,0 +1,43 @@
+{
+  "name": "@monorepo/root",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces",
+    "postbuild": "npm run format",
+    "clean": "npm run clean --workspaces",
+    "format": "prettier --config prettier.config.js --log-level warn --write .",
+    "postinstall": "patch-package",
+    "lint": "eslint --ext .json --max-warnings 0 . && npm run lint --workspaces",
+    "test": "npm run test --workspaces"
+  },
+  "devDependencies": {
+    "@monorepo/tsconfig": "*",
+    "@tsconfig/node20": "~20.1.2",
+    "@tsconfig/strictest": "~2.0.2",
+    "@types/eslint": "^8.21.1",
+    "@typescript-eslint/eslint-plugin": "~6.19.0",
+    "@typescript-eslint/parser": "~6.19.0",
+    "dotenv-cli": "~7.3.0",
+    "eslint": "^8.51.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-json-files": "^4.0.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "patch-package": "~8.0.0",
+    "prettier": "~3.1.0",
+    "ts-node": "~11.0.0-beta.1",
+    "tsx": "~4.7.0",
+    "typescript": "~5.3.3"
+  },
+  "engines": {
+    "node": "20",
+    "npm": "^10.1.0"
+  },
+  "overrides": {
+    "tsconfig-paths": "^4.0.0"
+  }
+}
