@@ -1,7 +1,8 @@
-import { Test1 } from "@monorepo/utils/common/test1";
-import { Test2 } from "@monorepo/utils/common/test2";
+import { Test3 } from "@monorepo/utils/other/test3";
 import { StatusBar } from "expo-status-bar";
 import { Text, View } from "react-native";
+
+import { Test1, Test2 } from "./other";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
       <Text>My App</Text>
       <Text>{Test1}</Text>
       <Text>{Test2}</Text>
+      <Text>{Test3}</Text>
     </View>
   );
 }

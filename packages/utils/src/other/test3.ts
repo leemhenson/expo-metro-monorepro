@@ -1,1 +1,1 @@
-export const test3 = "test3";
+export const Test3 = "test3";
