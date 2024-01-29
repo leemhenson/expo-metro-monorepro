@@ -6,12 +6,11 @@
   "scripts": {
     "android": "expo run:android",
     "build": "tsc --noEmit",
-    "clean-watchman": "watchman watch-del ../..",
+    "build-native": "expo prebuild --clean",
     "ios": "expo run:ios",
     "lint": "eslint .",
     "open-android-studio": "open -a /Applications/Android\\ Studio.app android",
     "open-xcode": "xed ios",
-    "prestart": "npm run clean-watchman",
     "start": "expo start --dev-client"
   },
   "dependencies": {
